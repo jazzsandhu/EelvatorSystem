@@ -67,9 +67,7 @@ namespace TestAssignment.Controllers
 
 
         }
-        //for view model create
-        // GET: Doctor/Create
-        // GET: Doctor/Create
+        
         public ActionResult Create()
         {
             if (LoggedIn.isLoggedIn())
