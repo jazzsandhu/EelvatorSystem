@@ -1,0 +1,40 @@
+﻿@model List<TestAssignment.Models.Building>
+@{
+    ViewBag.Title = "List";
+}
+<form method="GET" action="/Building/List">
+    <input type="text" class="form-control" style="float:right;margin-top:1em;" placeholder="Search" name="searchkey" id="searchkey" />
+    <input type="submit" class="btn btn-primary" style="float:right;margin-top:1em;" name="submit" value="Search" />
+</form>
+@*@{
+    if ((bool)ViewData["isadmin"] == true)
+    {
+        <a href="/Building/Create" style="margin-top:1em;" class="btn btn-success">Add Building Information</a>
+    }
+}*@
+
+
+<h2>Building Information:</h2>
+<div>
+    @foreach (var b in @Model)
+    {
+        <div style="margin-top:1em"><a href="/Building/show/@b.BuildingId">@b.BuildingName</a></div>
+        <div style="margin-left:5em">Building Number @b.BuildingNumber</div>
+        <div style="margin-left:5em">Elevator Limit number: @b.BuildingLimitElevatorNo</div>
+
+
+    }
+</div>
+<nav aria-label="Page navigation example">
+    <div class="pagination pagination-lg">
+        @{
+            <a href="/Doctors/List?pagenum=@((int)ViewData["pagenum"]-1)&searchkey=@ViewData["searchkey"]" class="page-link">Prev</a>
+            @ViewData["pagesummary"]
+            <a href="/Doctors/List?pagenum=@((int)ViewData["pagenum"]+1)&searchkey=@ViewData["searchkey"]">Next</a>
+        }
+    </div>
+</nav>
+
+
+
+

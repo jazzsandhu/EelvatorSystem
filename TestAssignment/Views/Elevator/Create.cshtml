@@ -1,0 +1,68 @@
+﻿@model TestAssignment.Models.ViewModels.BuildingElevator
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Add a New Elevator</h2>
+
+<form action="/Elevator/Create" method="post">
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            <div class="col-md-10">
+                <label for="ElevatorNumber">Elevator Number: </label>
+                <div>
+                    <input type="text" name="ElevatorNumber" id="ElevatorNumber" class="form-control" />
+                    @Html.ValidationMessage("titleError", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="ElevatorLimitPeople">Elevator Limit People: </label>
+            <div>
+                <input type="text" name="ElevatorLimitPeople" id="ElevatorLimitPeople" class="form-control-file" />
+            </div>
+            @Html.ValidationMessage("fileError", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <label for="ElevatorLimitWeight">Elevator Limit Weight</label>
+                <div>
+                    <input type="text" name="ElevatorLimitWeight" id="ElevatorLimitWeight" class="form-control" />
+                </div>
+                @Html.ValidationMessage("descriptionError", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div style="font-size:15px">
+            <span style="color:black;font-weight:bold">Building:</span><br />
+            <select style="margin-top:1em" id="departmentId" type="text" name="buildingId">
+                @{
+                    foreach (var b in @Model.Buildings)
+                    {
+                        <option value="@b.BuildingId">@b.BuildingName</option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Add" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+</form>
+
+<div>
+    @Html.ActionLink("Back to List", "List")
+</div>
+
+

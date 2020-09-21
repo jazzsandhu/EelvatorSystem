@@ -1,0 +1,17 @@
+﻿@model TestAssignment.Models.ViewModels.BuildingElevator
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show</h2>
+<div>
+    <div style="margin-top:1em;font-size:x-large">Detail of @Model.Elevator.ElevatorNumber</div>
+    <div style="margin-left:5em">Limit People @Model.Elevator.ElevatorLimitPeople</div>
+    <div style="margin-left:5em">Limit Weight @Model.Elevator.ElevatorLimitWeight </div>
+
+    <div class="btn btn-danger" style="margin:1em;font-size:20px;text-align:center">
+        <a style="color:white" onClick="javascript: return confirm('Are you really want to delete this?');" href="/Elevator/Delete/@Model.Elevator.ElevatorId">Delete</a>
+    </div>
+</div>
+
+

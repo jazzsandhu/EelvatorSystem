@@ -1,0 +1,26 @@
+﻿@model TestAssignment.Models.ViewModels.BuildingElevator
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show</h2>
+<div>
+    <div style="margin-top:1em;font-size:x-large">Detail of @Model.Building.BuildingName</div>
+    <div style="margin-left:5em">Building Nuumber @Model.Building.BuildingNumber</div>
+    <div style="margin-left:5em">Limit Elevator @Model.Building.BuildingLimitElevatorNo </div>
+
+    <div class="btn btn-danger" style="margin:1em;font-size:20px;text-align:center">
+        <a style="color:white" onClick="javascript: return confirm('Are you really want to delete this?');" href="/Building/Delete/@Model.Building.BuildingId">Delete</a>
+    </div>
+</div>
+<div>
+    <h2>List of Elevators</h2>
+    @foreach (var e in @Model.Elevators)
+    {
+        <h3><a href="/Elevator/show/@e.ElevatorId">@e.ElevatorNumber</a></h3>
+        <div>Limit People @e.ElevatorLimitPeople</div>
+        <div>Limit Weight @e.ElevatorLimitWeight</div>
+    }
+
+</div>
+

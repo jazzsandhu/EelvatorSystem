@@ -1,0 +1,58 @@
+﻿@model TestAssignment.Models.ViewModels.BuildingElevator
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Add a New Building</h2>
+
+<form action="/Building/Create" method="post">
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            <div class="col-md-10">
+                <label for="buildingNumber">Building Number: </label>
+                <div>
+                    <input type="text" name="BuildingNumber" id="buidingNumber" class="form-control" />
+                    @Html.ValidationMessage("titleError", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="buildingName">Building Name: </label>
+            <div>
+                <input type="text" name="BuildingName" id="buildingName" class="form-control-file" />
+            </div>
+            @Html.ValidationMessage("fileError", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <label for="BuildingLimitElevatorNo">Building Limit Elevator No: </label>
+                <div>
+                    <input type="text" name="BuildingLimitElevatorNo" id="BuildingLimitElevatorNo" class="form-control" />
+                </div>
+                @Html.ValidationMessage("descriptionError", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Add" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+</form>
+
+<div>
+    @Html.ActionLink("Back to List", "List")
+</div>
+
+

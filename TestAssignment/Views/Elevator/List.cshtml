@@ -1,0 +1,32 @@
+﻿@model List<TestAssignment.Models.Elevator>
+@{
+    ViewBag.Title = "List";
+}
+<form method="GET" action="/Elevator/List">
+    <input type="text" class="form-control" style="float:right;margin-top:1em;" placeholder="Search" name="searchkey" id="searchkey" />
+    <input type="submit" class="btn btn-primary" style="float:right;margin-top:1em;" name="submit" value="Search" />
+</form>
+@*@{
+    if ((bool)ViewData["isadmin"] == true)
+    {
+        <a href="/Elevator/Create" style="margin-top:1em;" class="btn btn-success">Add Elevator Information</a>
+    }
+}*@
+
+
+<h2>Elevator Information:</h2>
+<div>
+    @foreach (var e in @Model)
+    {
+        <div style="margin-top:1em"><a href="/Elevator/Show/@e.ElevatorId">@e.ElevatorNumber</a></div>
+        <div style="margin-left:5em">Limit of people @e.ElevatorLimitPeople</div>
+        <div style="margin-left:5em">Limit of weight @e.ElevatorLimitWeight</div>
+
+
+    }
+</div>
+
+
+
+
+
