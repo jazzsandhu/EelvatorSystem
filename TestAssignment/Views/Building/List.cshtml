@@ -28,9 +28,9 @@
 <nav aria-label="Page navigation example">
     <div class="pagination pagination-lg">
         @{
-            <a href="/Doctors/List?pagenum=@((int)ViewData["pagenum"]-1)&searchkey=@ViewData["searchkey"]" class="page-link">Prev</a>
+            <a href="/Building/List?pagenum=@((int)ViewData["pagenum"]-1)&searchkey=@ViewData["searchkey"]" class="page-link">Prev</a>
             @ViewData["pagesummary"]
-            <a href="/Doctors/List?pagenum=@((int)ViewData["pagenum"]+1)&searchkey=@ViewData["searchkey"]">Next</a>
+            <a href="/Building/List?pagenum=@((int)ViewData["pagenum"]+1)&searchkey=@ViewData["searchkey"]">Next</a>
         }
     </div>
 </nav>
